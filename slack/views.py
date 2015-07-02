@@ -33,7 +33,7 @@ def meme():
     else:
         return "That template doesn't exist. Type `/meme templates` to see valid templates or provide your own as a URL."
 
-    payload = {"channel": channel_id, "attachments": {"title": "", "fields": [{"title": ""}], "image_url":  meme_url }}
+    payload = {"text": meme_url, "channel": channel_id}
     user = slack.find_user_info(user_id)
     payload.update(user)
 
