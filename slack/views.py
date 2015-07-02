@@ -22,6 +22,9 @@ def meme():
     if text[:9] == "templates":
         return memegen.get_help()
 
+    if text[:9] == "list":
+        return memegen.get_help()
+
     template, top, bottom = parse_text_into_params(text)
 
     valid_templates = [x[0] for x in memegen.get_templates()]
@@ -31,7 +34,7 @@ def meme():
     elif memeifier.image_exists(template):
         meme_url = memeifier.build_url(template, top, bottom)
     else:
-        return "That template doesn't exist. Type `/meme templates` to see valid templates or provide your own as a URL."
+        return "That template doesn't exist. Type `/meme list` to see valid templates or provide your own as a URL."
 
     payload = {
         "channel": channel_id,
